@@ -2938,7 +2938,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4290a2498fc81b4894976a73ba08e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerShoot: {fileID: 8300000, guid: 3637e9f0067dce545917d8bd0bdbb13f, type: 3}
+  playerShoot: {fileID: 8300000, guid: 05c1752c178622442b41f977923524ad, type: 3}
   asteroidExplosion: {fileID: 8300000, guid: a6b84b7726c6452489b246e3b0681e8e, type: 3}
   playerDamage: {fileID: 8300000, guid: 9f83f88da0e791c4bb26899eef2f6f40, type: 3}
   playerExplosion: {fileID: 8300000, guid: 22711ef5a9912174b85f42c642694bd6, type: 3}
