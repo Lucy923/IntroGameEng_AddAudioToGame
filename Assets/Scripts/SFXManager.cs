@@ -15,6 +15,8 @@ public class SFXManager : MonoBehaviour
 
     private AudioSource BgMusicAudioSource;
 
+    [SerializeField] float pitchVariance = 0.75f;
+
     public void Awake()
     {
         SFXaudioSource = GetComponent<AudioSource>();
@@ -37,18 +39,24 @@ public class SFXManager : MonoBehaviour
     //called in the PlayerController Script
     public void PlayerDamage()
     {
+        float randomPitch = Random.Range(1f - pitchVariance, 1f + pitchVariance);
+        SFXaudioSource.pitch = randomPitch;
         SFXaudioSource.PlayOneShot(playerDamage);
     }
 
     //called in the PlayerController Script
     public void PlayerExplosion()
     {
+        float randomPitch = Random.Range(1f - pitchVariance, 1f + pitchVariance);
+        SFXaudioSource.pitch = randomPitch;
         SFXaudioSource.PlayOneShot(playerExplosion);
     }
 
     //called in the AsteroidDestroy script
     public void AsteroidExplosion()
     {
+        float randomPitch = Random.Range(1f - pitchVariance, 1f + pitchVariance);
+        SFXaudioSource.pitch = randomPitch;
         SFXaudioSource.PlayOneShot(asteroidExplosion);
     }
 
