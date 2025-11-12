@@ -15,7 +15,7 @@ public class SFXManager : MonoBehaviour
 
     private AudioSource BgMusicAudioSource;
 
-    [SerializeField] float pitchVariance = 0.75f;
+    [SerializeField] float pitchVariance = 0.5f;
 
     public void Awake()
     {
@@ -33,6 +33,8 @@ public class SFXManager : MonoBehaviour
     //called in the PlayerController Script
     public void PlayerShoot()
     {
+        float randomPitch = Random.Range(1f - pitchVariance, 1f + pitchVariance);
+        SFXaudioSource.pitch = randomPitch;
         SFXaudioSource.PlayOneShot(playerShoot);
     }
 
@@ -47,8 +49,7 @@ public class SFXManager : MonoBehaviour
     //called in the PlayerController Script
     public void PlayerExplosion()
     {
-        float randomPitch = Random.Range(1f - pitchVariance, 1f + pitchVariance);
-        SFXaudioSource.pitch = randomPitch;
+
         SFXaudioSource.PlayOneShot(playerExplosion);
     }
 
@@ -72,5 +73,10 @@ public class SFXManager : MonoBehaviour
         BgMusicAudioSource.GetComponent<AudioSource>().clip = BgMusicGameplay;
         BgMusicAudioSource.Play();
 
+    }
+
+    public AudioSource GetBgMusicAudioSource()
+    {
+        return BgMusicAudioSource;
     }
 }

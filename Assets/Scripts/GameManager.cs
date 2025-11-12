@@ -38,6 +38,11 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        if (sfxManager == null)
+        {
+            sfxManager = FindObjectOfType<SFXManager>();
+        }
+
         if (Instance == null)
         {
             Instance = this;
@@ -93,7 +98,11 @@ public class GameManager : MonoBehaviour
                     gameState = GameState.GameOver;
                     gameOverScoreText.text = score.ToString();
                     asteroidSpawner = GameObject.Find("AsteroidSpawner");
-                    asteroidSpawner.SetActive(false);                    
+                    asteroidSpawner.SetActive(false);
+                    if (sfxManager != null && sfxManager.GetBgMusicAudioSource() != null)
+                    {
+                        sfxManager.GetBgMusicAudioSource().pitch = 1f;
+                    }
                 }
                 break;
 
